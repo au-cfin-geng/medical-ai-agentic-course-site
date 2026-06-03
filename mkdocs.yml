@@ -1,0 +1,144 @@
+site_name: "Medical AI + Agentic Coding Lab"
+site_description: "A PhD Summer Course on Clinical AI, MRI Analysis, and Prompt-First Research"
+site_author: "Course Team"
+docs_dir: docs
+site_dir: site
+repo_name: medical-ai-agentic-course-site
+use_directory_urls: true
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+plugins:
+  - search:
+      lang: en
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+  - footnotes
+
+nav:
+  - Home: index.md
+  - Course Map:
+    - Overview: course_map/overview.md
+    - Two-Day Schedule: course_map/two_day_schedule.md
+    - Learning Outcomes: course_map/learning_outcomes.md
+    - How to Use This Site: course_map/how_to_use_this_site.md
+    - Lab Alignment: course_map/lab_alignment.md
+  - Foundations:
+    - Clinical AI: foundations/clinical_ai.md
+    - Medical Imaging Pipeline: foundations/medical_imaging_pipeline.md
+    - MRI Basics: foundations/mri_basics.md
+    - Brain Tumour Imaging: foundations/brain_tumour_imaging.md
+    - Segmentation Basics: foundations/segmentation_basics.md
+    - Reproducibility: foundations/reproducibility.md
+    - Ethics, Privacy and Safety: foundations/ethics_privacy_and_safety.md
+  - MRI Textbook:
+    - What Is MRI: mri/what_is_mri.md
+    - T1, T2, and FLAIR: mri/t1_t2_flair.md
+    - Voxels, Slices, and Spacing: mri/voxels_slices_and_spacing.md
+    - Preprocessing: mri/preprocessing.md
+    - Labels, Masks, and Annotation: mri/labels_masks_and_annotation.md
+    - Quality Control: mri/quality_control.md
+  - Medical AI Workflow:
+    - Clinical Question to Dataset: medical_ai_workflow/from_clinical_question_to_dataset.md
+    - Data Inspection: medical_ai_workflow/data_inspection.md
+    - Baseline Modeling: medical_ai_workflow/baseline_modeling.md
+    - Metrics: medical_ai_workflow/metrics_dice_sensitivity_specificity.md
+    - Error Analysis: medical_ai_workflow/error_analysis.md
+    - Model Improvement: medical_ai_workflow/model_improvement.md
+    - Study Design: medical_ai_workflow/study_design.md
+    - Clinical Translation: medical_ai_workflow/clinical_translation.md
+  - Agentic Research:
+    - What Is Agentic Coding: agentic_research/what_is_agentic_coding.md
+    - Claude Code Workflow: agentic_research/claude_code_workflow.md
+    - Prompt as Protocol: agentic_research/prompt_as_experimental_protocol.md
+    - Roles for Claude: agentic_research/roles_for_claude.md
+    - Prompt Best Practices: agentic_research/prompt_best_practices.md
+    - Debugging with Claude: agentic_research/debugging_with_claude.md
+    - From Lab to Research: agentic_research/from_lab_to_your_own_research.md
+  - Lab Missions:
+    - "Mission 0 — Wake the Lab": lab_missions/mission_00_wake_the_lab.md
+    - "Mission 1 — Receive the Signal": lab_missions/mission_01_receive_the_signal.md
+    - "Mission 2 — Build the First Detector": lab_missions/mission_02_build_the_first_detector.md
+    - "Mission 3 — Investigate Failure": lab_missions/mission_03_investigate_failure.md
+    - "Mission 4 — Improve With Intent": lab_missions/mission_04_improve_with_intent.md
+    - "Mission 5 — Design the Next Study": lab_missions/mission_05_design_the_next_study.md
+    - "Mission 6 — Translate Responsibly": lab_missions/mission_06_translate_responsibly.md
+  - Prompt Library:
+    - Overview: prompt_library/overview.md
+    - Setup Prompts: prompt_library/setup_prompts.md
+    - Data Prompts: prompt_library/data_prompts.md
+    - Visualisation Prompts: prompt_library/visualisation_prompts.md
+    - Modeling Prompts: prompt_library/modeling_prompts.md
+    - Error Analysis Prompts: prompt_library/error_analysis_prompts.md
+    - Reviewer Prompts: prompt_library/reviewer_prompts.md
+    - Translation Prompts: prompt_library/translation_prompts.md
+    - Bonus Prompts: prompt_library/bonus_prompts.md
+  - Handouts:
+    - Clinical AI Cheat Sheet: handouts/cheat_sheet_clinical_ai.md
+    - MRI Cheat Sheet: handouts/cheat_sheet_mri.md
+    - Metrics Cheat Sheet: handouts/cheat_sheet_metrics.md
+    - Prompting Cheat Sheet: handouts/cheat_sheet_prompting.md
+    - Lab Commands Cheat Sheet: handouts/cheat_sheet_lab_commands.md
+    - Glossary: handouts/glossary.md
+  - Instructor Notes:
+    - Teaching Flow: instructor_notes/teaching_flow.md
+    - Live Demo Script: instructor_notes/live_demo_script.md
+    - Where Students Get Stuck: instructor_notes/where_students_get_stuck.md
+    - How to Discuss Results: instructor_notes/how_to_discuss_results.md
+    - Student Showcase Ideas: instructor_notes/student_showcase_ideas.md
+    - Research and Study Ideas: instructor_notes/research_and_education_study_ideas.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com
