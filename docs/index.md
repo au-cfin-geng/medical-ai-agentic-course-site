@@ -1,128 +1,97 @@
 # Medical AI + Agentic Coding Lab
 
-**A PhD Summer Course on Clinical AI, MRI Analysis, and Prompt-First Research**
+**A prompt-first clinical AI research course using Claude Code and brain MRI segmentation**
 
 ---
 
-This is a two-day intensive course for doctoral researchers who want to understand how artificial intelligence is being applied to clinical medicine — and who want hands-on experience building, evaluating, and critically assessing an AI system using real medical imaging data. Over two days you will work through seven lab missions that take you from environment setup all the way to a structured assessment of whether an AI model is ready to support clinical decision-making. You will use Claude Code as your research partner throughout: not as a black box that writes code for you, but as a collaborative agent you direct with precise scientific language. By the end of the course you will have built a brain tumour segmentation pipeline from scratch, run a formal error analysis, and written a structured argument about clinical translation readiness — using prompts as your primary research instrument.
+## What This Course Is
+
+This lab course teaches you two things at once: how clinical AI systems are built and evaluated in medical imaging, and how to use agentic AI coding tools as rigorous research instruments. The domain is brain MRI tumour segmentation — a well-defined problem with real stakes, open datasets, and clear evaluation metrics. The method is Claude Code, Anthropic's agentic coding environment, used not just as a convenience tool but as a structured research collaborator.
+
+The course is designed for graduate students and clinical researchers who want hands-on exposure to the full clinical AI pipeline — from raw MRI data to a responsible deployment argument — while developing fluency with modern agentic AI workflows.
 
 ---
 
-## Who This Course Is For
+## What You Will Learn Clinically
 
-This course is designed for PhD students in medicine, biology, neuroscience, radiology, biomedical engineering, and adjacent fields who are scientifically rigorous but who may not have a background in software engineering or machine learning. You do not need to know how to write Python from memory. You do not need prior experience with neural networks or image processing libraries.
+By the end of this course you will be able to:
 
-What you do need is the ability to think clearly about a research question, to describe what you expect to happen before you run an experiment, to interrogate results that do not match your expectations, and to maintain appropriate scientific scepticism about tools you did not build yourself.
-
-If you can write a coherent methods section for a clinical study, you have the foundational skills to direct an AI coding agent. That is the premise of this course.
-
-!!! note "A note on diversity of background"
-    Participants will arrive with very different technical histories. Some will have written analysis scripts in R or Python; others will not have opened a terminal in years. Both are welcome. The course is calibrated so that scientific judgment — not prior coding ability — determines how much you get out of it.
-
----
-
-## What You Will Build
-
-Over the two days, you will construct a brain tumour segmentation pipeline using MRI data in the style of the BraTS (Brain Tumour Segmentation) benchmark. This involves:
-
-- **Loading and inspecting multi-contrast MRI volumes** (T1, T1ce, T2, FLAIR) to understand what the data looks like before modelling begins
-- **Running a baseline segmentation model** directed entirely through structured prompts to Claude Code, without writing a single line of code manually
-- **Evaluating the model** using clinical metrics — Dice coefficient, sensitivity, and specificity — and understanding what those numbers mean for a radiologist reviewing the output
-- **Conducting a structured error analysis** to identify where and why the model fails: false positives in white matter lesions, missed infiltrative margins, boundary uncertainty
-- **Iterating with intent** — writing a second-generation prompt that encodes your hypotheses about what will improve the model, then verifying whether the results match your prediction
-- **Designing a follow-up validation study** with appropriate patient cohort, endpoints, and statistical power reasoning
-- **Assessing clinical translation readiness** against the TRIPOD+AI reporting framework and regulatory considerations for AI as a medical device
-
-At the end of Day 2, each participant (or small group) presents their pipeline, their best and worst segmentation cases, and their argument about what would need to be true before this system could enter a clinical workflow.
+- **Inspect MRI data** — understand modalities (T1, T2, FLAIR), voxel geometry, and annotation conventions before writing a single line of model code
+- **Run a baseline segmentation** — implement a threshold or atlas-based detector and understand why simple baselines matter
+- **Interpret evaluation metrics** — use Dice coefficient, sensitivity, and specificity correctly, and explain what each metric tells a clinician
+- **Conduct structured error analysis** — identify where and why a model fails, and connect failure modes to patient safety implications
+- **Improve with a controlled hypothesis** — make one deliberate change, measure its effect, and resist the temptation to change everything at once
+- **Design a follow-on study** — specify a research question, dataset, evaluation plan, and statistical approach at a level suitable for a grant or ethics application
+- **Argue for clinical translation responsibly** — apply honest uncertainty quantification and regulatory framing to a deployment case
 
 ---
 
-## What Prompt-First Research Means
+## What You Will Learn About Agentic Research with Claude
 
-In conventional computational research, the researcher writes code that implements their scientific intent. The code is the protocol. This creates a high barrier: if you cannot write the code, you cannot do the experiment.
+Claude Code is not a chatbot you ask for code. It is an agentic system with persistent memory, tool use, and role-switching capabilities. This course treats it as a research instrument, not a shortcut. You will learn to:
 
-Prompt-first research inverts this relationship. You describe your research intent, your constraints, and your expected outputs in precise natural language — the prompt — and an AI agent translates that intent into executable code. The prompt is the protocol.
-
-!!! tip "Prompts are not magic words"
-    This does not mean you can be vague. A poorly written prompt produces poorly targeted code, just as a poorly written methods section produces a poorly conducted study. The discipline of prompt writing is the discipline of making your scientific intent unambiguous. You still need to understand the domain well enough to know whether the output is correct.
-
-This also does not mean coding skill has become irrelevant. A researcher who understands what a segmentation function should return, what a Dice score means computationally, and what a data loading pipeline should produce — that researcher writes better prompts and catches more errors in the AI's output. Scientific knowledge and domain familiarity amplify the value of every prompt you write.
-
-What changes is the bottleneck. Instead of "can I write this function?", the question becomes "can I specify precisely what this function should do, verify that it does it, and interpret the result scientifically?" That is a question researchers with deep domain knowledge are uniquely positioned to answer.
-
----
-
-## The Seven Mission Arc
-
-The course is structured around seven lab missions, each building on the previous. You complete these in the GitHub Classroom repository provided at the start of Day 1.
-
-| Mission | Name | One-Sentence Description |
-|---------|------|--------------------------|
-| **M0** | Wake the Lab | Verify your environment, clone the repository, and confirm that all tools are installed and responsive. |
-| **M1** | Receive the Signal | Load a multi-contrast MRI volume, inspect its metadata and visual structure, and write a data quality report using Claude Code as your analysis assistant. |
-| **M2** | Build the First Detector | Prompt Claude Code to implement a baseline brain tumour segmentation model and run it on three representative cases; collect raw metric output. |
-| **M3** | Investigate Failure | Select your worst-performing case, conduct a structured error analysis, and produce a written hypothesis about the model's failure mode. |
-| **M4** | Improve With Intent | Encode your failure hypothesis as a specific prompt refinement, re-run the pipeline, and measure whether the change had the predicted effect. |
-| **M5** | Design the Next Study | Write a structured study design document — patient cohort, endpoints, sample size reasoning — for a prospective validation of your pipeline. |
-| **M6** | Translate Responsibly | Complete a clinical translation assessment: regulatory pathway, reporting checklist, failure mode catalogue, and deployment prerequisites. |
-
-!!! info "The arc matters"
-    Missions are not independent exercises. M3 depends on output from M2. M4 depends on the hypothesis you wrote in M3. M6 draws on everything. If you skip ahead, you will have less to work with at the end.
+- **Use CLAUDE.md as project memory** — maintain a living document that defines your research question, dataset, and constraints so every session starts with shared context
+- **Write explicit output contracts** — tell Claude exactly what format, naming convention, and validation check you expect before generating any file
+- **Prompt with observation and hypothesis** — structure prompts as `Observation → Hypothesis → Test`, mirroring scientific method rather than vague requests
+- **Switch roles deliberately** — use Claude as analyst, critic, coder, and clinical advisor in sequence, keeping each role's scope explicit
+- **Run controlled prompt iterations** — change one prompt variable at a time and record results, treating prompt engineering as an experiment
+- **Evaluate and compare prompts** — use quantitative metrics and qualitative review to judge which prompt strategy produces better research outputs
+- **Understand skills, subagents, and MCP** — know when to compose Claude capabilities versus when to keep tasks atomic
+- **Apply honesty constraints** — understand AI limitations and safety boundaries relevant to clinical deployment
 
 ---
 
-## How to Use This Site
+## Two-Assignment Structure
 
-This tutorial site is organised into parallel chapters that map to the lab missions. The intended workflow for each session is:
+The course uses two assignments that build on each other.
 
-1. **Read the chapter** — absorb the conceptual and clinical background before touching the lab
-2. **Do the mission** — open the GitHub Classroom repo and follow the mission brief
-3. **Inspect the artifact** — every mission produces a specific output file (a plot, a metrics table, a written report); read it carefully before moving on
-4. **Reflect** — each chapter ends with a reflection question; write a one-paragraph answer in your lab notebook
-5. **Optional extension** — if you have time, each mission has a stretch task that takes the science further
+**Assignment 1 — Preflight** establishes your agentic workstation. You configure Claude Code, write your initial CLAUDE.md, verify that your environment can load and inspect MRI data, and submit a setup confirmation. This happens before Day 1.
 
-!!! tip "Do not skip the reading"
-    The lab missions assume you have read the corresponding tutorial section. The missions do not re-explain concepts; they ask you to apply them. A student who skips the MRI chapter and proceeds to Mission 1 will find the data inspection questions opaque.
+**Assignment 2 — Main Lab** covers the full clinical AI pipeline across two sessions. You build, evaluate, fail, improve, design, and translate — documenting every step with prompts, outputs, and reflections.
 
 ---
 
-## How This Site Connects to the Lab
+## Schedule at a Glance
 
-There are two distinct components to this course and it is important to understand what each one provides.
+### Day 0 / Preflight
+Set up your agentic workstation. Install Claude Code, clone the lab repository, write your CLAUDE.md, and complete the preflight data inspection. Confirm you can load a BraTS scan and compute a basic Dice score before arriving on Day 1.
 
-**This site** (the one you are reading now) provides:
+### Day 1 — Build and Evaluate (Missions 0–4 + Pack Report)
+- **Mission 0** — Wake the Lab: orient Claude to your project and verify the data pipeline end to end
+- **Mission 1** — Receive the Signal: inspect and document the MRI dataset with structured prompting
+- **Mission 2** — Build the First Detector: implement a baseline segmentation algorithm and run initial evaluation
+- **Mission 3** — Investigate Failure: conduct systematic error analysis with Claude in critic role
+- **Mission 4** — Improve With Intent: form a hypothesis, make one controlled change, re-evaluate
+- **Pack Report**: consolidate findings from Missions 0–4 into a structured research document
 
-- Conceptual and clinical background for every topic in the course
-- Worked examples of how to structure research prompts
-- A Prompt Library of ready-to-use templates for Claude Code
-- Reference tables for metrics, MRI sequences, and regulatory frameworks
-- Printable handout cards for the live sessions
-
-**The GitHub Classroom repository** (provided separately) provides:
-
-- The actual MRI data (BraTS-format, three training cases)
-- Mission brief files (`mission_00/`, `mission_01/`, etc.) with specific tasks and grading rubrics
-- A scaffold Python environment with dependency pinning
-- An auto-generated dashboard that displays your segmentation metrics after each run
-- Instructor-visible submission artefacts
-
-!!! info "The site teaches; the repo is where you work"
-    Think of this site as the textbook and the repo as the laboratory. You would not attempt a wet-lab protocol without reading the relevant biochemistry first; the same logic applies here.
+### Day 2 — Critique, Improve, Translate (Missions 5–6)
+- **Mission 5** — Design the Next Study: draft a follow-on research proposal with dataset, metrics, and statistical plan
+- **Mission 6** — Translate Responsibly: write a clinical translation argument with explicit uncertainty and regulatory framing
 
 ---
 
-## Quick Start
+## Relationship to Anthropic Academy
 
-!!! info "Day 1 — Where to Begin"
-    **Before the first session:**
+This course references and builds upon publicly available Anthropic Academy learning resources on prompt engineering, Claude's tool use, and responsible AI deployment. Where specific Academy modules are relevant to a lab mission, the [Reading Map](readings/anthropic-academy-reading-map.md) identifies which resources to consult. No Academy content is reproduced here; all references are pointers to external materials.
 
-    1. Accept the GitHub Classroom assignment link (provided by your instructor via email or the course LMS).
-    2. Read [Foundations → Clinical AI](foundations/clinical_ai.md) — approximately 15 minutes.
-    3. Read [Agentic Research → What Is Agentic Coding](agentic_research/what_is_agentic_coding.md) — approximately 10 minutes.
+---
 
-    **At the start of Day 1:**
+## Quick Navigation
 
-    Open the [Two-Day Schedule](course_map/two_day_schedule.md) in one browser tab and your GitHub Classroom repo in another. The instructor will walk through Mission 0 together before students work independently.
+| Where to go | What you will find |
+|---|---|
+| [Getting Started](getting-started/course-overview.md) | Course overview, classroom workflow, and preflight setup instructions |
+| [Lab Missions](labs/preflight.md) | All lab assignments with step-by-step mission briefs |
+| [Clinical AI](clinical-ai/what-is-clinical-ai.md) | Conceptual foundations: MRI, segmentation, metrics, translation |
+| [Agentic Research](agentic-research/what-is-agentic-research.md) | Claude Code mental models, prompt patterns, and tool use contracts |
+| [Handouts](handouts/clinical-ai-one-page.md) | Printable cheatsheets for clinical AI, MRI, metrics, and prompting |
+| [Reading Map](readings/anthropic-academy-reading-map.md) | Pointers to Anthropic Academy and further reading |
+| [Instructor](instructor/teaching-plan.md) | Teaching plan, discussion prompts, demo scripts, and rubrics |
 
-    **If you are already comfortable with the terminal:**
-    Jump directly to the [Prompt Library](prompt_library/overview.md) after Mission 0 to see the full template collection you will be using throughout the two days.
+---
+
+!!! tip "Start Here If You Are a Student"
+    Go to [Getting Started — Course Overview](getting-started/course-overview.md) to understand the structure, then jump to [Preflight Setup](getting-started/setup-preflight.md) to configure your environment before Day 1.
+
+!!! note "Start Here If You Are an Instructor"
+    Go to [Instructor — Teaching Plan](instructor/teaching-plan.md) for session timing, facilitation notes, and the live demo script.
